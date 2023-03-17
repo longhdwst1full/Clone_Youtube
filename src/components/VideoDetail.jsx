@@ -77,7 +77,7 @@ export default function VideoDetail() {
         <div className='flex flex-col overflow-y-auto py-6 px-4 lg:w-[350px] xl:w-[400px]'>
           {relatedVideos?.contents?.map((item, index) => {
             if (item?.type !== 'video') return false
-            // return <SuggestionVideoCard key={index} video={item?.video} />
+            return <SuggestionVideoCard key={index} video={item?.video} />
           })}
         </div>
       </div>
