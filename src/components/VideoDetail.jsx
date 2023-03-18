@@ -15,6 +15,7 @@ export default function VideoDetail() {
   const [relatedVideos, setRelatedVideos] = useState()
 
   const fetchRelatedVideos = () => {
+    document.getElementById("root").classList.remove("custom-h");
     setLoading(true)
     fetchDataFromApi(`video/related-contents/?id=${id}`).then((res) => {
       setRelatedVideos(res)

@@ -28,8 +28,9 @@ export default function Header() {
     }
   }
 
-  const { pathname } = useLocation()
-  const pageName = pathname?.split('/')?.filter(Boolean)?.[0]
+  const { pathname } = useLocation();
+  const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
+
   return (
     <div className='sticky top-0 z-10 flex  h-14 flex-row items-center justify-between px-4 md:px-5 bg-white'>
       {loading && <Loader />}
@@ -40,7 +41,7 @@ export default function Header() {
             className='flex h-10 w-10 cursor-pointer items-center justify-center rounded-full hover:bg-[#303030]/[0.6] md:mr-6 md:hidden'
             onClick={mobileMenuToggle}
           >
-            {mobileMenu ? <CgClose className='text-xl text-white' /> : <SlMenu className='text-xl text-black/80' />}
+            {mobileMenu ? <CgClose className='text-xl text-black/80' /> : <SlMenu className='text-xl text-black/80' />}
           </div> 
         )}
         <Link to='/' className='flex items-center'>

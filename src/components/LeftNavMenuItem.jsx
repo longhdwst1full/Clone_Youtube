@@ -5,12 +5,12 @@ const LeftNavMenuItem = ({ text, icon, className, action }) => {
   return (
     <div
       className={
-        'mb-[1px] flex h-10 cursor-pointer items-center rounded-lg px-3 text-sm text-[#303030] hover:bg-[#303030]/[0.15] ' +
+        'mb-[1px] flex h-10 cursor-pointer items-center rounded-lg px-3 text-sm text-white hover:bg-white/[0.15] ' +
         className
       }
       onClick={action}
     >
-      <span className="text-xl mr-5">{icon}</span>
+      <span className='mr-5 text-xl'>{icon}</span>
       {text}
     </div>
   )
