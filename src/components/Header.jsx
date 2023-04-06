@@ -1,15 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import ytLogoMobile from '../images/yt-logo-mobile.png'
-
+import Loader from "../shared/Loader"
 import { SlMenu } from 'react-icons/sl'
 import { IoIosSearch } from 'react-icons/io'
 import { RiVideoAddLine } from 'react-icons/ri'
 import { FiBell } from 'react-icons/fi'
 import { CgClose } from 'react-icons/cg'
 import { Context } from '../context/contextApi'
-import Loader from '../shared/loader'
-
 
 export default function Header() {
   const { loading, mobileMenu, setMobileMenu } = useContext(Context)
@@ -20,29 +18,26 @@ export default function Header() {
     setMobileMenu(!mobileMenu)
   }
   const searchQueryHandler = (e) => {
-    
-
     if ((e.key === 'Enter' || e === 'searchButton') && searchQuery?.length > 0) {
-      
       navigator(`/searchResult/${searchQuery}`)
     }
   }
 
-  const { pathname } = useLocation();
-  const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
+  const { pathname } = useLocation()
+  const pageName = pathname?.split('/')?.filter(Boolean)?.[0]
 
   return (
-    <div className='sticky top-0 z-10 flex  h-14 flex-row items-center justify-between px-4 md:px-5 bg-white'>
+    <div className='sticky top-0 z-10 flex  h-14 flex-row items-center justify-between bg-white px-4 md:px-5'>
       {loading && <Loader />}
 
       <div className='flex h-5 items-center'>
         {pageName !== 'video' && (
-            <div
+          <div
             className='flex h-10 w-10 cursor-pointer items-center justify-center rounded-full hover:bg-[#303030]/[0.6] md:mr-6 md:hidden'
             onClick={mobileMenuToggle}
           >
             {mobileMenu ? <CgClose className='text-xl text-black/80' /> : <SlMenu className='text-xl text-black/80' />}
-          </div> 
+          </div>
         )}
         <Link to='/' className='flex items-center'>
           <div className='h-6 md:h-7'>
@@ -104,8 +99,6 @@ export default function Header() {
           </div>
         </Link>
       </div>
-
-    
 
       <div className='group flex  items-center  overflow-hidden'>
         <div className='flex h-8 rounded-l-3xl border border-[#303030] group-focus-within:border-blue-500 md:ml-10 md:h-10 md:pl-5 md:group-focus-within:ml-5 md:group-focus-within:pl-0'>
